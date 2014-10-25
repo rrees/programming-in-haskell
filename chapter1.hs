@@ -15,3 +15,11 @@ my_reverse_qsort (x : xs) =
 		left = [a | a <- xs , a > x ]
 		right = [b | b <- xs , b <= x]
 	in my_reverse_qsort left ++ [x] ++ my_reverse_qsort right
+
+
+flawed_qsort [] = []
+flawed_qsort (x : xs) =
+	let
+		left = [a | a <- xs , a > x ]
+		right = [b | b <- xs , b < x]
+	in flawed_qsort left ++ [x] ++ flawed_qsort right
